@@ -1,9 +1,12 @@
 .button {
   width: auto;
   height: auto;
-  background-color: rgb(83, 85, 180);
+  background-color: rgb(123, 124, 151);
 }
 
+body {
+  background-color: rgb(153, 173, 153);
+}
 ul {
   list-style: none;
 }

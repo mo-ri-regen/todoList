@@ -63,7 +63,6 @@ allClearButton.addEventListener("click", () => {
   }
   listTagArray.forEach((listTag) => {
     listTag.remove();
-    //listTagArray.shift(); //先頭要素削除
   });
   ul.remove();
   listTagArray.splice(0, listTagArray.length); //配列の要素をすべて削除
