@@ -9,7 +9,7 @@ const input = document.querySelector("input");
 const toDoListCreateButton = document.getElementById("toDoListCreate");
 const allClearButton = document.getElementById("allClear");
 const ul = document.createElement("ul");
-const listArray = [];
+const listTagArray = [];
 
 addEventListener("load", () => {});
 
@@ -49,19 +49,24 @@ toDoListCreateButton.addEventListener("click", () => {
   label.innerText = input.value;
   li.appendChild(label);
 
-  //listArray.push(li);
+  listTagArray.push(li);
+  console.log(listTagArray[0]);
+
   initial();
 });
 
+//リストをすべてクリアにする
 allClearButton.addEventListener("click", () => {
-  //div.removeChild(ul);
-
-  /*
-  listArray.forEach((element) => {
-    const parent = element.parentNode;
-    parent.removechild;
-    //element.removechild(element.lastChild);
+  if (!listTagArray.length) {
+    alert("ToDoリストがありません");
+    return;
+  }
+  listTagArray.forEach((listTag) => {
+    listTag.remove();
+    //listTagArray.shift(); //先頭要素削除
   });
-  */
+  ul.remove();
+  listTagArray.splice(0, listTagArray.length); //配列の要素をすべて削除
+
   initial();
 });
