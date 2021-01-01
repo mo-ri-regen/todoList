@@ -6,10 +6,12 @@
 const div = document.querySelector("div");
 const input = document.querySelector("input");
 //const input=document.getElementById("input"); //  こちらでもよい
-const toDoListCreateButton = document.getElementById("toDoListCreate");
-const allClearButton = document.getElementById("allClear");
+const toDoListCreateButton = document.getElementById("toDoListCreateButton");
+const doneButton = document.getElementById("RemoveButton");
+const allClearButton = document.getElementById("allClearButton");
 const ul = document.createElement("ul");
 const listTagArray = [];
+const listTagDictionary = {}; //Todoリストの内容:チェックボックスの状態
 
 addEventListener("load", () => {});
 
@@ -17,7 +19,7 @@ addEventListener("load", () => {});
 function initial() {
   input.value = "";
 }
-//ボタンをクリックしたとき
+//リストを作成する関数
 toDoListCreateButton.addEventListener("click", () => {
   if (!input.value) {
     alert("テキストを入力してください");
@@ -54,7 +56,7 @@ toDoListCreateButton.addEventListener("click", () => {
 
   initial();
 });
-
+RemoveButton.addEventListener("click", () => {});
 //リストをすべてクリアにする
 allClearButton.addEventListener("click", () => {
   if (!listTagArray.length) {

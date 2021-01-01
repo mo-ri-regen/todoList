@@ -1,12 +1,31 @@
-.button {
-  width: auto;
-  height: auto;
-  background-color: rgb(123, 124, 151);
-}
-
 body {
   background-color: rgb(153, 173, 153);
 }
+
+#container {
+  text-align: center;
+}
+/*header*/
+.header {
+  text-align: center;
+  padding: 0 50px;
+}
+/*text*/
+#input {
+  width: 20vw;
+  display: flex;
+  padding: 20px;
+  margin: 10px auto;
+}
+/*button*/
+.button {
+  width: 10vw;
+  height: 10vh;
+  display: inline;
+  background-color: rgb(123, 124, 151);
+  justify-content: center;
+}
+/*list(「リスト作成」ボタンを押下すると,リストが作成される)*/
 ul {
   list-style: none;
 }
