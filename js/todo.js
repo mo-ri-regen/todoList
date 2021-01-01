@@ -35,24 +35,26 @@ toDoListCreateButton.addEventListener("click", () => {
   //を作成
   //ulの子要素はliでなければならない(w3cによって定められている)
   const li = document.createElement("li");
-  li.setAttribute("id", "checkbox");
+  li.setAttribute("class", "checkbox");
   li.setAttribute("type", "checkbox");
   ul.appendChild(li);
 
   const inputList = document.createElement("input");
-  inputList.setAttribute("id", "checkbox");
+  inputList.setAttribute(
+    "id",
+    "checkbox" + (listTagArray.length + 1).toString()
+  );
   inputList.setAttribute("type", "checkbox");
   inputList.value = input.value;
   li.appendChild(inputList);
 
   //labelタグを使うことでinputタグと関連付けができる
   const label = document.createElement("label");
-  label.setAttribute("for", "checkbox");
+  label.setAttribute("for", "checkbox" + (listTagArray.length + 1).toString());
   label.innerText = input.value;
   li.appendChild(label);
 
   listTagArray.push(li);
-  console.log(listTagArray[0]);
 
   initial();
 });
