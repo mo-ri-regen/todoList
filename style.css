@@ -25,7 +25,3 @@ body {
   background-color: rgb(123, 124, 151);
   justify-content: center;
 }
-/*list(「リスト作成」ボタンを押下すると,リストが作成される)*/
-ul {
-  list-style: none;
-}
