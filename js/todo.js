@@ -7,13 +7,13 @@ const div = document.querySelector("div");
 const input = document.querySelector("input");
 //const input=document.getElementById("input"); //  こちらでもよい
 const toDoListCreateButton = document.getElementById("toDoListCreateButton");
-const doneButton = document.getElementById("RemoveButton");
+const removeButton = document.getElementById("removeButton");
 const allClearButton = document.getElementById("allClearButton");
 const form = document.createElement("form");
 const listTagArray = [];
 const listTagDictionary = {}; //Todoリストの内容:チェックボックスの状態
 
-addEventListener("load", () => {});
+let count = 0;
 
 //初期化する関数
 function initial() {
@@ -26,13 +26,15 @@ toDoListCreateButton.addEventListener("click", () => {
     return;
   }
 
-  //<ul>タグが存在しないときにタグを作成する
+  count++;
+  //<form>タグが存在しないときにタグを作成する
   if (!document.getElementById("form")) {
     div.appendChild(form);
+    form.setAttribute("class", "checkbox");
   }
 
   const checkbox = document.createElement("input");
-  checkbox.setAttribute("id", "checkbox" + (form.length + 1).toString());
+  checkbox.setAttribute("id", "checkbox" + count.toString());
   checkbox.setAttribute("type", "checkbox");
   checkbox.setAttribute("name", "todoList");
   checkbox.value = input.value;
@@ -40,14 +42,25 @@ toDoListCreateButton.addEventListener("click", () => {
 
   //labelタグを使うことでinputタグと関連付けができる
   const label = document.createElement("label");
-  label.setAttribute("for", "checkbox" + form.length.toString());
+  label.setAttribute("class", "todoList");
+  label.setAttribute("for", "checkbox" + count.toString());
   label.innerText = input.value;
   form.appendChild(label);
 
   initial();
 });
 //チェックボックスがついている要素だけ削除
-RemoveButton.addEventListener("click", () => {});
+removeButton.addEventListener("click", () => {
+  const todoLists = document.getElementsByName("todoList");
+
+  todoLists.forEach((todoList) => {
+    if (todoList.checked) {
+      const todoLabel = todoList.nextSibling; //ラベル要素
+      todoList.remove();
+      todoLabel.remove();
+    }
+  });
+});
 //リストをすべてクリアにする
 allClearButton.addEventListener("click", () => {
   if (!form.hasChildNodes()) {
@@ -61,4 +74,5 @@ allClearButton.addEventListener("click", () => {
   form.remove();
 
   initial();
+  count = 0;
 });
