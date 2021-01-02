@@ -32,10 +32,7 @@ toDoListCreateButton.addEventListener("click", () => {
   }
 
   const checkbox = document.createElement("input");
-  checkbox.setAttribute(
-    "id",
-    "checkbox" + (listTagArray.length + 1).toString()
-  );
+  checkbox.setAttribute("id", "checkbox" + (form.length + 1).toString());
   checkbox.setAttribute("type", "checkbox");
   checkbox.setAttribute("name", "todoList");
   checkbox.value = input.value;
@@ -43,7 +40,7 @@ toDoListCreateButton.addEventListener("click", () => {
 
   //labelタグを使うことでinputタグと関連付けができる
   const label = document.createElement("label");
-  label.setAttribute("for", "checkbox" + (listTagArray.length + 1).toString());
+  label.setAttribute("for", "checkbox" + form.length.toString());
   label.innerText = input.value;
   form.appendChild(label);
 
