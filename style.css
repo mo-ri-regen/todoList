@@ -30,3 +30,6 @@ body {
   content: "\A";
   white-space: pre;
 }
+.todoList:hover {
+  cursor: pointer;
+}
